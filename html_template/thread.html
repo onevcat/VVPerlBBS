@@ -1,0 +1,110 @@
+<head>
+    <title><!-- TMPL_VAR name = 'threadTitle'-->|OneV's Denの掲示板</title>
+</head>
+<!--TMPL_IF name='threadIsDeleted'-->
+<body>
+    <h4><!-- TMPL_VAR name = 'homeURL'--> - <!-- TMPL_VAR name = 'topicURL'--> - <!-- TMPL_VAR name = 'threadTitle'--></h4>
+    <h2>申し訳ありません、このレスレッドはただ今削除されました。</h2>
+</body>    
+<!--TMPL_ELSE-->
+<body>
+    <h4><!-- TMPL_VAR name = 'homeURL'--> - <!-- TMPL_VAR name = 'topicURL'--> - <!-- TMPL_VAR name = 'threadTitle'--></h4>
+    <h4>これから スレッド</h4>
+    <p align = "center">
+        <TABLE width = "90%">
+            <TH><h2><!-- TMPL_VAR name = 'threadTitle'--></h2></TH>
+            
+        </TABLE>
+    </p>
+    <!-- TMPL_VAR name = 'replyFormStart'-->
+    <!-- TMPL_VAR name = 'hiddenTopicID'-->
+    <!-- TMPL_VAR name = 'hiddenThreadID'-->
+    <!-- TMPL_VAR name = 'replyFormSubmit'-->
+    <!-- TMPL_VAR name = 'replyFormEnd'-->
+
+    <!--TMPL_IF name='canDeleteThread'-->
+    <!-- TMPL_VAR name = 'deleteFormStart'-->
+    <!-- TMPL_VAR name = 'hiddenTopicID'-->
+    <!-- TMPL_VAR name = 'hiddenThreadID'-->
+    <!-- TMPL_VAR name = 'deleteFormSubmit'-->
+    <!-- TMPL_VAR name = 'deleteFormEnd'-->                
+    <!--/TMPL_IF -->
+    <p align = "center">
+        <TABLE width = "90%">
+
+            
+            <TH><font color = "grey">スレッドID:<!-- TMPL_VAR name = 'threadID'--></font></TH>
+            <TH><font color = "grey">投稿会員:<!-- TMPL_VAR name = 'threadUser'--></font></TH>
+            <TH><font color = "grey">投稿日時:<!-- TMPL_VAR name = 'threadTime'--></font></TH>
+            
+        </TABLE>
+    </p>
+    <p align = "center">
+        <TABLE width = "90%">
+            <TR>
+                <TD><!-- TMPL_VAR name = 'threadContent' --></TD>
+            </TR>
+            <!-- TMPL_LOOP name = 'threadImages' -->
+            <TR>
+                <TD>
+                    <!-- TMPL_VAR name = 'threadImageURL'-->
+                </TD>
+                
+            </TR>
+            <!-- /TMPL_LOOP -->
+        </TABLE>
+    </p>
+    <hr/>
+    <h4>これから 返信</h4>
+    <!-- TMPL_LOOP name = 'replies' -->
+    
+    <p align = "center">
+        <TABLE width = "90%">
+            <TH>
+                <h4><!-- TMPL_VAR name = 'replyTitle'--></h4>
+            </TH>
+        </TABLE>
+    </p>
+    <!--TMPL_IF name='canDeleteReply'-->
+    <!-- TMPL_VAR name = 'deleteFormStart'-->
+    <!-- TMPL_VAR name = 'hiddenTopicID'-->
+    <!-- TMPL_VAR name = 'hiddenThreadID'-->
+    <!-- TMPL_VAR name = 'hiddenReplyID'-->
+    <!-- TMPL_VAR name = 'deleteFormSubmit'-->
+    <!-- TMPL_VAR name = 'deleteFormEnd'-->                
+    <!--/TMPL_IF -->
+    <p align = "center">        
+        <TABLE width = "90%">
+            
+            <TH><font color = "grey">返信ID:<!-- TMPL_VAR name = 'replyID'--></font></TH>
+            
+            <TH><font color = "grey">返信会員:<!-- TMPL_VAR name = 'replyUser'--></font></TH>
+            <TH><font color = "grey">投稿日時:<!-- TMPL_VAR name = 'replyTime'--></font></TH>
+            
+        </TABLE>
+    </p>
+    <p align = "center">  
+        <TABLE width = "90%">
+            <TR>
+                <TD><!-- TMPL_VAR name = 'replyContent' --></TD>
+            </TR>
+            <!-- TMPL_LOOP name = 'replyImages' -->
+            <TR>
+                <TD>
+                    <!-- TMPL_VAR name = 'replyImageURL'-->
+                </TD>
+                
+            </TR>
+            <!-- /TMPL_LOOP -->
+        </TABLE>
+        
+    </p>
+    <hr />
+    <!-- /TMPL_LOOP -->
+    <TABLE cellspacing="10" width = "90%">
+        <TH><font color = "grey"><!-- TMPL_VAR name = 'previousPage'--></font>　　　<!-- TMPL_VAR name = 'currentPage'-->　　　<font color = "grey"><!-- TMPL_VAR name = 'nextPage'--></font></TH>
+    </TABLE>
+
+</body>
+<!--/TMPL_IF-->
+

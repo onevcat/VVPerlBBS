@@ -1,0 +1,16 @@
+<head>
+    <title>ログイン|OneV's Denの掲示板</title>
+</head>
+<body>
+    <!--TMPL_IF name='isSubmitted'-->
+        <h2>ログイン</h2>
+        <!--TMPL_IF name='loginSuc'-->
+            <h3>ログイン: OK。　戻しています...</h3>
+            <meta http-equiv="refresh" content="2,<!-- TMPL_VAR name = 'url'-->"/>
+        <!--TMPL_ELSE-->
+            <h3><!-- TMPL_VAR name = 'loginErrorMessage'--></h3>
+        <!-- /TMPL_IF -->
+    <!-- /TMPL_IF -->
+</body>
+
+

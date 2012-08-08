@@ -1,0 +1,54 @@
+<head>
+    <title><!-- TMPL_VAR name = 'topicTitle'-->| OneV's Denの掲示板</title>
+</head>
+<body>
+    <h4><!-- TMPL_VAR name = 'homeURL'--> - <!-- TMPL_VAR name = 'topicTitle'--></h4>
+    <!-- TMPL_VAR name = 'newThreadFormStart'-->
+    <!-- TMPL_VAR name = 'newThreadInTopic'-->
+    <!-- TMPL_VAR name = 'newThreadSubmit'-->
+    <!-- TMPL_VAR name = 'newThreadFormEnd'-->
+    <!--TMPL_IF name='canDeleteTopic'-->
+        <!-- TMPL_VAR name = 'deleteFormStart'-->
+        <!-- TMPL_VAR name = 'hiddenTopicID'-->
+        <!-- TMPL_VAR name = 'deleteFormSubmit'-->
+        <!-- TMPL_VAR name = 'deleteFormEnd'-->                
+    <!--/TMPL_IF -->
+    <p align = "center">
+        <TABLE width = "90%" cellspacing="10">
+            <TH></TH>
+            <TH>タイトル</TH>
+            <TH>スレッド作成</TH>
+            <TH>作成日時</TH>
+            <TH>最新返信</TH>
+            <TH>更新日時</TH>
+            
+            <!-- TMPL_LOOP name = 'threads' -->
+            <TR>
+                <TD><!-- TMPL_VAR name = 'recentUpdatedImage'--></TD>
+                <TD><!-- TMPL_VAR name = 'threadURL'--></TD>
+                <TD>
+                    <!-- TMPL_VAR name='threadUser'-->
+                </TD>
+                <TD>
+                    <!-- TMPL_VAR name='threadTime'-->
+                </TD>
+                <!-- TMPL_IF name='mostRecentIsReply'-->
+                <TD><!-- TMPL_VAR name = 'mostRecentReplyUser'--></TD>
+                <TD><!-- TMPL_VAR name='mostRecentReplyTime'--></TD>
+                <!--TMPL_ELSE-->
+                <TD>返信がありません</TD>
+                <TD><!-- TMPL_VAR name='mostRecentReplyTime'--></TD>
+                <!-- /TMPL_IF -->
+            </TR>
+            <!-- /TMPL_LOOP -->
+        </TABLE>
+    </p>
+    <TABLE cellspacing="10" width = "90%">
+        
+        <TH><font color = "grey"><!-- TMPL_VAR name = 'previousPage'--></font>　　　<!-- TMPL_VAR name = 'currentPage'-->　　　<font color = "grey"><!-- TMPL_VAR name = 'nextPage'--></font></TH>
+        
+    </TABLE>
+    
+</body>
+
+

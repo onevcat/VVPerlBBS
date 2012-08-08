@@ -1,0 +1,23 @@
+<h1><a href="index.pl">OneV's Denの掲示板</a></h1>
+    <TABLE>
+        <TR>
+    <!--TMPL_UNLESS name='userLoggedIn'-->
+            <!-- TMPL_VAR name = 'headerLoginFormStart'-->
+            <TD>会員ID:</TD>
+            <TD><!-- TMPL_VAR name = 'headerIdTextField'--></TD>
+            <TD>パスワード:</TD>
+            <TD><!-- TMPL_VAR name = 'headerPwdTextField'--></TD>
+            <TD><!-- TMPL_VAR name = 'headerKeepLoginCheck'-->ログイン状態を保持する</TD>
+            <TD><!-- TMPL_VAR name = 'headerSubmitBtn'--></TD>
+            <!-- TMPL_VAR name = 'headerLoginFromPage'-->
+            <!-- TMPL_VAR name = 'headerLoginFormEnd'-->
+            <TD><!-- TMPL_VAR name = 'headerRegisterLink'--></TD>
+    <!--TMPL_ELSE-->
+            <TD><!-- TMPL_VAR name = 'welcomeURL'-->さん、こんにちは</TD>
+            <!-- TMPL_VAR name = 'headerLogoutFormStart'-->
+            <TD><!-- TMPL_VAR name = 'headerLogOutBtn'--></TD>
+            <!-- TMPL_VAR name = 'headerLogoutFormEnd'-->
+    <!-- /TMPL_UNLESS -->
+        </TR>
+    </TABLE>
+<hr />

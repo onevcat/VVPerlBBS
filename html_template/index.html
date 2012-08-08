@@ -1,0 +1,60 @@
+<head>
+    <title>OneV's Denの掲示板</title>
+</head>
+<body>
+ <!-- TMPL_VAR name = 'searchFormStart'-->
+ <h4>
+    トピック
+    <!-- TMPL_VAR name = 'searchTextField'-->
+    <!-- TMPL_VAR name = 'searchRadioBtn'-->
+    <label><input type="radio" name="type" value="thread" checked="checked" />スレッド</label><label><input type="radio" name="type" value="reply" />返信</label>
+    <!-- TMPL_VAR name = 'searchTextSubmit'-->
+    
+</h4>
+<!-- TMPL_VAR name = 'searchFormEnd'-->
+
+<!-- TMPL_IF name='canAddTopic'-->
+<!-- TMPL_VAR name = 'addTopicFormStart'-->
+<!-- TMPL_VAR name = 'addTopicFormSubmit'-->
+<!-- TMPL_VAR name = 'addTopicFormEnd'-->
+<!-- /TMPL_IF-->
+
+<p align = "center">
+    <TABLE cellspacing="10" width = "90%">
+        <TH></TH>
+        <TH>タイトル</TH>
+        <TH>最新投稿のスレッド</TH>
+        <TH>投稿作成日時</TH>
+        <!-- TMPL_LOOP name = 'topics' -->
+        <TR>
+            <TD>
+                <!-- TMPL_VAR name='recentUpdatedImage'-->
+            </TD>
+            <TD><!-- TMPL_VAR name = 'topicURL'--></TD>
+            
+            <TD>
+                <!-- TMPL_IF name='mostRecentThreadURL'-->
+                <!-- TMPL_VAR name = 'mostRecentThreadURL'-->
+                <!-- TMPL_IF name='mostPostIsReply'-->
+                返信会員：
+                <!--TMPL_ELSE-->
+                投稿会員：
+                <!-- /TMPL_IF -->
+                <!-- TMPL_VAR name = 'mostRecentPostUser'-->
+                <!--TMPL_ELSE-->
+                スレッドがありません
+                <!-- /TMPL_IF -->
+            </TD>
+
+            <TD><!-- TMPL_VAR name = 'mostRecentThreadTime'--></TD>
+
+        </TR>
+        <!-- /TMPL_LOOP -->
+    </TABLE>
+    <TABLE cellspacing="10" width = "90%">
+        <TH><font color = "grey"><!-- TMPL_VAR name = 'previousPage'--></font>　　　<!-- TMPL_VAR name = 'currentPage'-->　　　<font color = "grey"><!-- TMPL_VAR name = 'nextPage'--></font></TH>
+    </TABLE>
+</p>
+</body>
+
+

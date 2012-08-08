@@ -1,0 +1,55 @@
+<head>
+    <title><!-- TMPL_VAR name = 'searchKey'--> 検索| OneV's Denの掲示板</title>
+</head>
+<body>
+    <h4><!-- TMPL_VAR name = 'homeURL'--> - <!-- TMPL_VAR name = 'searchKey'--></h4>
+
+    <!-- TMPL_VAR name = 'searchThreadLink'--> | <!-- TMPL_VAR name = 'searchReplyLink'-->
+
+    <!-- TMPL_LOOP name = 'posts' -->
+        
+        <p align = "center">
+        <TABLE width = "90%">
+            <TH>
+                <h4><!-- TMPL_VAR name = 'postTitle'--></h4>
+            </TH>
+        </TABLE>
+    </p>
+    
+    <p align = "center">        
+        <TABLE width = "90%">
+                <TH><font color = "grey">
+                    <a href="thread.pl?id=<!-- TMPL_VAR name = 'postID'-->">スレッドID:<!-- TMPL_VAR name = 'postID'--></a></font></TH>
+                <TH><font color = "grey">投稿会員:<!-- TMPL_VAR name = 'postUser'--></font></TH>
+                <TH><font color = "grey">投稿日時:<!-- TMPL_VAR name = 'postTime'--></font></TH>
+        </TABLE>
+    </p>
+    <p align = "center">  
+        <TABLE width = "90%">
+            <TR>
+                <TD><!-- TMPL_VAR name = 'postContent' --></TD>
+            </TR>
+            <!-- TMPL_LOOP name = 'postImages' -->
+            <TR>
+                <TD>
+                    <!-- TMPL_VAR name = 'postImageURL'-->
+                </TD>
+                
+            </TR>
+            <!-- /TMPL_LOOP -->
+        </TABLE>
+    
+    </p>
+    <hr />
+        <!-- /TMPL_LOOP -->
+
+
+    <TABLE cellspacing="10" width = "90%">
+         <TH>
+            <TH><font color = "grey"><!-- TMPL_VAR name = 'previousPage'--></font>　　　<!-- TMPL_VAR name = 'currentPage'-->　　　<font color = "grey"><!-- TMPL_VAR name = 'nextPage'--></font></TH>
+        <TH>
+    </TABLE>
+    
+</body>
+
+

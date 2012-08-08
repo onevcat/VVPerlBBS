@@ -1,0 +1,14 @@
+<head>
+    <title>投稿削除|OneV's Denの掲示板</title>
+</head>
+<body>
+    <!-- TMPL_IF name='isReadyToDelete'-->
+        <h4><!-- TMPL_VAR name = 'topicURL'--> - <!-- TMPL_VAR name = 'threadURL'--></h4>
+        <h2>投稿削除完了</h2>
+        <meta http-equiv="refresh" content="2,<!-- TMPL_VAR name = 'redirectURL'-->"/>
+    <!-- TMPL_ELSE -->
+        <h1>投稿削除中止</h1>
+        <h2><!-- TMPL_VAR name = 'errMsg'--></h2>
+    <!-- /TMPL_IF -->
+</body>
+

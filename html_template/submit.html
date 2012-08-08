@@ -1,0 +1,15 @@
+<head>
+    <title>投稿完了 | OneV's Denの掲示板</title>
+</head>
+<body>
+    <!-- TMPL_IF name='isReadyToSubmit'-->
+        <h4><!-- TMPL_VAR name = 'topicURL'--> - <!-- TMPL_VAR name = 'threadURL'--></h4>
+        <meta http-equiv="refresh" content="2,<!-- TMPL_VAR name = 'redirectURL'-->"/>
+        <h2>投稿完了</h2>
+    <!-- TMPL_ELSE -->
+        <h1>投稿中止</h1>
+        <h2><!-- TMPL_VAR name = 'errMsg'--></h2>
+    <!-- /TMPL_IF -->
+</body>
+
+

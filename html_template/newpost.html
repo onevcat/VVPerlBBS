@@ -1,0 +1,137 @@
+<!-- TMPL_UNLESS name = 'isPreview'-->
+<head>
+    <title>投稿|OneV's Denの掲示板</title>
+</head>
+<body>
+    <h4><!-- TMPL_VAR name = 'topicURL'--> - <!-- TMPL_VAR name = 'threadURL'--> - 投稿</h4>
+    <!-- TMPL_VAR name = 'formStart'-->
+    <TABLE>
+        <TR>   
+            <TD>タイトル(全角128文字まで)：<!-- TMPL_VAR name = 'titleTextField'--></TD>
+        </TR>
+        <!--TMPL_UNLESS name='isTitleOK'-->
+        <TR>   
+            <TD><font color="red">すみません、入力されが正しくないようです。</font></TD>
+        </TR>
+        <!--/TMPL_UNLESS-->
+        <TR>   
+            <TD>本文を入力してください(全角4096文字まで)：</TD>   
+        </TR>
+        <TR>
+            <TD><!-- TMPL_VAR name = 'contentTextArea'--></TD>
+        </TR>
+        <!--TMPL_UNLESS name='isContentOK'-->
+        <TR>   
+            <TD><font color="red">すみません、入力されが正しくないようです。</font></TD>
+        </TR>
+        <!--/TMPL_UNLESS-->
+        
+        <TR>
+            <TD>画像で投稿することができます（<1M,５枚まで）</TD>
+        </TR>
+        <!-- TMPL_LOOP name = 'uploadedImages' -->
+        <TR>
+            <TD><!-- TMPL_VAR name = 'imageName'--></TD>
+        </TR>
+        <!-- /TMPL_LOOP -->
+        <TR>
+            <TD><!-- TMPL_VAR name = 'countLeft'-->
+                <!--TMPL_IF name='canUpload'-->
+                <!-- TMPL_VAR name = 'uploadFormStart'-->
+                <!-- TMPL_VAR name = 'uploadField'-->
+                <!-- TMPL_VAR name = 'uploadSubmit'-->
+                <!-- TMPL_VAR name = 'uploadFormEnd'-->
+                <!--/TMPL_IF-->
+            </TD>
+        </TR>
+        <!-- TMPL_LOOP name = 'htmlTempImages' -->
+        <TR>
+            <TD>
+                <!-- TMPL_VAR name = 'imageName'-->
+            </TD>
+            <TD>
+                <button type="submit" name="imageDelete" value="<!-- TMPL_VAR name = 'deleteImageName'-->">画像を削除する</button>
+                
+            </TD>
+        </TR>
+        <!-- /TMPL_LOOP -->
+
+    </TABLE>
+    <hr/>
+    <!-- TMPL_VAR name = 'belongThread'-->
+    <!-- TMPL_VAR name = 'belongTopic'-->
+    <!-- TMPL_VAR name = 'originImageStrings'-->
+    <!-- TMPL_VAR name = 'tempImageStrings'-->
+    <!-- TMPL_VAR name = 'submit'-->
+    <!-- TMPL_VAR name = 'cancelSubmit'-->
+    <!-- TMPL_VAR name = 'formEnd'-->
+</body>
+
+<!--TMPL_ELSE-->
+<head>
+    <title>投稿前に確認|OneV's Denの掲示板</title>
+</head>
+<body>
+    <h4><!-- TMPL_VAR name = 'topicURL'--> - <!-- TMPL_VAR name = 'threadURL'--> - 投稿前に確認</h4>
+    <TABLE width = "90%">
+        <TR>
+            <TD>タイトル:</TD>
+            <TD><!-- TMPL_VAR name = 'newPostTitle'  escape = "html"--></TD>
+        </TR>
+        <TR>
+            <TD>会員ID:</TD>
+            <TD><!-- TMPL_VAR name = 'newPostUser'--></TD>
+        </TR>
+        <TR>
+            <TD>投稿日時:</TD>
+            <TD><!-- TMPL_VAR name = 'postTime'--></TD>
+        </TR>
+    </TABLE>
+    <hr/>
+    <p align = "center">
+        <TABLE width = "90%">
+            <TH>
+                <TH>投稿の内容</TH>
+            </TH>
+            <TR>
+                <TD></TD><TD><!-- TMPL_VAR name = 'newPostContent' --></TD>
+            </TR>
+            <!-- TMPL_LOOP name = 'htmlTempImages' -->
+            <TR>
+                <TD></TD>
+                <TD>
+                    <!-- TMPL_VAR name = 'imageTempURL'-->
+                </TD>
+                
+            </TR>
+            <!-- /TMPL_LOOP -->
+
+        </TABLE>
+    </p>
+    
+    <!-- TMPL_VAR name = 'submitFormStart'-->
+    <!-- TMPL_VAR name = 'hiddenTitle' -->
+    <!-- TMPL_VAR name = 'hiddenContent' -->
+    <!-- TMPL_VAR name = 'belongTopic'-->
+    <!-- TMPL_VAR name = 'belongThread'-->
+    <!-- TMPL_VAR name = 'tempImageStrings'-->
+    <!-- TMPL_VAR name = 'postSubmit'-->
+    <!-- TMPL_VAR name = 'submitFormEnd'-->
+
+    <!-- TMPL_VAR name = 'editFormStart'-->
+    <!-- TMPL_VAR name = 'editSubmit'-->
+    <!-- TMPL_VAR name = 'hiddenTitle' -->
+    <!-- TMPL_VAR name = 'hiddenContent' -->
+    <!-- TMPL_VAR name = 'originImageStrings'-->
+    <!-- TMPL_VAR name = 'tempImageStrings'-->
+    <!-- TMPL_VAR name = 'belongTopic'-->
+    <!-- TMPL_VAR name = 'belongThread'-->
+    <!-- TMPL_VAR name = 'editFormEnd'-->
+    
+
+</body>
+
+<!-- /TMPL_UNLESS -->
+
+
+

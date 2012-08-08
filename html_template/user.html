@@ -1,0 +1,76 @@
+<head>
+    <title>会員info|OneV's Denの掲示板</title>
+</head>
+<body>
+    <h4>会員info - <!-- TMPL_VAR name = 'inputUserID'--></h4>
+    <!--TMPL_IF name='isSelf'-->
+    <font color = "red"><!--TMPL_VAR name='changePasswordMessage'--></font>
+    <h5>パスワード変更:</h5>
+    <!-- TMPL_VAR name = 'changePasswordFormStart'-->
+    <!-- TMPL_VAR name = 'hiddenUserID'-->
+    <TABLE>
+        <TR>
+            <TD>現在のパスワード:</TD>
+            <TD><!-- TMPL_VAR name = 'oldPasswordTextField'--></TD>
+        </TR>
+        <TR>
+            <TD>新しいパスワード:</TD>
+            <TD><!-- TMPL_VAR name = 'newPasswordTextField'--></TD>
+        </TR>
+        <TR>
+            <TD>新しいパスワード(再入力):</TD>
+            <TD><!-- TMPL_VAR name = 'againPasswordTextField'--></TD>
+        </TR>
+    </TABLE>
+    <!-- TMPL_VAR name = 'changePasswordSubmit'-->
+    <!-- TMPL_VAR name = 'changePasswordFormEnd'-->
+
+    <hr/>
+    <h3>これから、メッセージ：</h3>
+    <!-- TMPL_LOOP name = 'messages' -->
+    
+    <p align = "center">
+        <TABLE width = "90%">
+            <TH><h3><!-- TMPL_VAR name = 'messageTitle'--></h3></TH>
+        </TABLE>
+    </p>
+    
+    <p align = "center">
+        <TABLE width = "90%">
+            <TH><font color = "grey">メッセージID:<!-- TMPL_VAR name = 'messageID'--></font></TH>
+            <TH><font color = "grey">送信会員:<!-- TMPL_VAR name = 'fromUser'--></font></TH>
+            <TH><font color = "grey">送信日時:<!-- TMPL_VAR name = 'messageTime'--></font></TH>
+        </TABLE>
+    </p>
+    <p align = "center">
+        <TABLE width = "90%">
+            <TR>
+                <TD><!-- TMPL_VAR name = 'messageContent' --></TD>
+            </TR>
+        </TABLE>
+    </p>
+    <hr/>
+    <!-- /TMPL_LOOP -->
+
+    <TABLE cellspacing="10" width = "90%">
+        <TH><font color = "grey"><!-- TMPL_VAR name = 'previousPage'--></font>　　　<!-- TMPL_VAR name = 'currentPage'-->　　　<font color = "grey"><!-- TMPL_VAR name = 'nextPage'--></font></TH>
+    </TABLE>
+
+    <!--TMPL_ELSE-->
+        <!--TMPL_IF name='userID'-->
+            <font color = "red"><!-- TMPL_VAR name = 'messageSendMessage'--></font>
+            <h4>この会員に送信する: </h4>
+            <!-- TMPL_VAR name = 'messageFormStart'-->
+            <h5>メッセージのタイトル: <!-- TMPL_VAR name = 'messageTitleTextFild'--></h5>
+            <h5>メッセージ:</h5>
+            <!-- TMPL_VAR name = 'messageContentTextFild'-->
+            <h5><!-- TMPL_VAR name = 'messageSubmit'--></h5>
+            <!-- TMPL_VAR name = 'hiddenUserID'-->
+            <!-- TMPL_VAR name = 'messageFormEnd'-->
+        <!--TMPL_ELSE-->
+            <h4>ログインしたら、この会員に送信することができます。</h4>
+        <!--/TMPL_IF-->
+    <!--/TMPL_IF-->
+</body>
+
+
