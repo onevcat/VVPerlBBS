@@ -85,11 +85,14 @@ my @tempImages = imagesListFromString($q->param('tempImageStrings'));
 if ($isImageUpload) {
     $isPreviewSubmitted = undef;
     my $uploadFileName = $q->param('uploadFileName');
-    my $tempFileName = saveToTemp($uploadFileName);
-    if ($tempFileName) {
-        push @tempImages,$tempFileName;
-        push @originImages,$uploadFileName;
+    if ($uploadFileName) {
+        my $tempFileName = saveToTemp($uploadFileName);
+        if ($tempFileName) {
+            push @tempImages,$tempFileName;
+            push @originImages,$uploadFileName;
+        }
     }
+    
 }
 
 if ($isImageDelete) {
