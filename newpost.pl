@@ -91,8 +91,7 @@ if ($isImageUpload) {
             push @tempImages,$tempFileName;
             push @originImages,$uploadFileName;
         }
-    }
-    
+    }   
 }
 
 if ($isImageDelete) {
